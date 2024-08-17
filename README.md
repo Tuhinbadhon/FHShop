@@ -2,7 +2,7 @@
 
 # Overview
 
-STYLE ROOM is a full-stack single-page web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to search, filter, categorize, and sort products. The application includes authentication via Google and Email/Password using Firebase, ensuring a secure and personalized user experience.
+FH Collections is a full-stack single-page web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to search, filter, categorize, and sort products. The application includes authentication via Google and Email/Password using Firebase, ensuring a secure and personalized user experience.
 
 # Features
 
@@ -68,6 +68,6 @@ STYLE ROOM is a full-stack single-page web application built with the MERN stack
 
 # Installation and Setup
 
-1. Clone the repository:
-   git clone https://github.com/mrbalok019/style-room.git
-   cd style-room
+Clone the repository:
+git clone https://github.com/Tuhinbadhon/FHShop.git
+cd FHShop
