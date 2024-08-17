@@ -19,7 +19,7 @@ const AllProducts = () => {
   const fetchProducts = (page, sortField, sortOrder, searchData) => {
     setLoading(true);
     fetch(
-      `http://localhost:5000/products?page=${page}&limit=6&sortField=${sortField}&sortOrder=${sortOrder}&search=${searchData}`
+      `https://bookfinder-snowy.vercel.app/products?page=${page}&limit=6&sortField=${sortField}&sortOrder=${sortOrder}&search=${searchData}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -77,20 +77,20 @@ const AllProducts = () => {
   }
 
   return (
-    <div className="mt-6">
+    <div className="max-[450px]:mt-6 mt-10 ">
       <div className="flex flex-col lg:flex-row justify-between mb-6">
         {/* Sorting field */}
         <div className="dropdown">
           <div
             tabIndex={0}
             role="button"
-            className="btn m-1 btn-primary text-white"
+            className="btn m-1 mb-5 btn-primary text-white"
           >
             Sort By
           </div>
           <ul
             tabIndex={0}
-            className="text-black dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            className="text-white dropdown-content menu z-[20] glass bg-blue-400 rounded-box  w-52 p-2 shadow"
           >
             <li>
               <a onClick={() => handleSortChange("creationDate")}>Date Added</a>
@@ -102,14 +102,17 @@ const AllProducts = () => {
         </div>
 
         {/* Searching */}
-        <div>
-          <form className="flex flex-row gap-3 " onSubmit={searchHandler}>
+        <div className="max-[450px]:mx-5">
+          <form
+            className="flex justify-center flex-row gap-3 "
+            onSubmit={searchHandler}
+          >
             <label className="text-base lg:text-lg font-medium">Search </label>
             <div className="flex flex-row gap-2">
               <input
                 type="text"
                 name="search"
-                className="rounded-xl border-2 border-blue-800"
+                className="rounded-md border-2 border-blue-800"
                 placeholder="   Product name or brand"
               />
               <button type="submit">
@@ -142,29 +145,29 @@ const AllProducts = () => {
             <TiThMenu />
           </label>
 
-          <div className="grid grid-cols-1 md:grid-cols-2  gap-6 max-w-full">
+          <div className="grid max-[450px]:mx-5 grid-cols-1 md:grid-cols-2  gap-6 max-w-full">
             {products.map((product) => (
               <div
                 key={product._id}
                 className="card card-compact w-auto bg-base-100 shadow-xl text-left"
               >
-                <figure className="w-56 h-56 md:w-60 lg:w-64 mx-auto block">
+                <figure className="w-56 h-56 mt-5 rounded-lg  md:w-60 lg:w-64 mx-auto block">
                   <img
                     src={product.productImage}
                     alt={product._id}
-                    className="object-cover w-full h-full"
+                    className="object-cover "
                   />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-secondary">
+                <div className="card-body ">
+                  <h2 className="card-title ">
                     {product.productName}
-                    <div className="badge badge-secondary">
+                    <div className="badge badge-neutral text-white flex items-center justify-center gap-1">
                       <FaStar /> {product.ratings}{" "}
                     </div>
                   </h2>
-                  <p className="text-base md:text-lg lg:text-lg font-bold text-purple-600 text-right">
-                    - by
-                    <span className="border-2 border-purple-600 ml-1 font-bold px-2 rounded-2xl text-black">
+                  <p className="text-base md:text-lg lg:text-lg font-bold ">
+                    -by
+                    <span className=" border-purple-600 ml-1 font-bold text-2xl rounded-2xl text-black">
                       {" "}
                       {product.brand}
                     </span>
@@ -201,7 +204,7 @@ const AllProducts = () => {
                 onClick={() => setCurrentPage(number + 1)}
                 className={`btn ${
                   currentPage === number + 1 ? "btn-active" : ""
-                }`}
+                } mr-1 `}
               >
                 {number + 1}
               </button>
@@ -209,7 +212,7 @@ const AllProducts = () => {
             <button
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
-              className="btn btn-primary ml-2"
+              className="btn max-[450px]:mt-2 btn-primary ml-2"
             >
               Next
             </button>
@@ -222,25 +225,27 @@ const AllProducts = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-blue-300 lg:bg-transparent  text-base-content min-h-full w-80 p-4 text-left">
+          <ul className="menu bg-[#515e68] lg:bg-transparent  text-white min-h-full w-80 p-4 text-left">
             {/* Sidebar content here */}
             <label
               htmlFor="my-drawer-2"
               aria-label="close sidebar"
-              className="drawer-overlay text-right btn 
+              className="drawer-overlay max-[450px]:mt-5 text-right btn 
             btn-circle lg:hidden absolute z-[10] right-5 text-indigo-800"
             >
               <ImCross />
             </label>
 
-            <p className="font-semibold text-2xl text-indigo-800 ">
+            <p className="font-semibold max-[450px]:mt-7 text-2xl text-black max-[450px]:text-white ">
               Filter By:{" "}
             </p>
 
             {/* category  */}
-            <div className="flex flex-col mt-2">
-              <p className="font-semibold text-lg">Category </p>
-              <select className="select select-primary w-full max-w-xs">
+            <div className="mt-2 max-[450px]:mt-9 flex flex-col ">
+              <p className="font-semibold text-black max-[450px]:text-white text-lg">
+                Category{" "}
+              </p>
+              <select className="select text-black select-primary w-full max-w-xs">
                 <option disabled selected>
                   Any
                 </option>
@@ -253,8 +258,10 @@ const AllProducts = () => {
             </div>
             {/* Brand  */}
             <div className="flex flex-col mt-2">
-              <p className="font-semibold text-lg">Brand </p>
-              <select className="select select-primary w-full max-w-xs">
+              <p className="font-semibold text-black max-[450px]:text-white  text-lg">
+                Brand{" "}
+              </p>
+              <select className="select text-black select-primary w-full max-w-xs">
                 <option disabled selected>
                   Any
                 </option>
@@ -275,7 +282,7 @@ const AllProducts = () => {
                 min={0}
                 max="100"
                 value="40"
-                className="range range-primary"
+                className="range range-secondary"
               />
             </div>
           </ul>

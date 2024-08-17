@@ -16,7 +16,7 @@ const Home = () => {
         <LogRegComponent />
       ) : (
         <div>
-          <h1 className="text-2xl lg:text-5xl font-bold text-center ">
+          <h1 className="text-2xl mt-14 max-[450px]:mt-9 lg:text-5xl font-bold text-center ">
             Welcome to FH Collections
           </h1>
           <p className="text-lg lg:text-3xl font-bold text-center ">
