@@ -140,7 +140,7 @@ const Nav = () => {
               to="/"
               className="btn btn-ghost lg:text-lg font-bold max-[450px]:text-2xl text-black  p-0"
             >
-              STYLE <span className="text-blue-800 font-bold">ROOM</span>
+              FH <span className="text-blue-800 font-bold">Collections</span>
             </Link>
           </div>
         </div>

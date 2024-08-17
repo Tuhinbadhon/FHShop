@@ -1,8 +1,5 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
-
-
 
 .container {
   background-color: #fff;
@@ -45,7 +42,7 @@
   border: none;
   padding: 20px;
   margin-top: 5px;
-  background-color: #059669;
+  background-color: #080e5b;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -91,13 +88,15 @@
 }
 .container .intros-container .intro-control {
   position: absolute;
+  border-radius: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
   height: 480px;
   color: #fff;
-  background: linear-gradient(170deg, #34d399, #059669);
+  background: linear-gradient(170deg, #3496d3, #960572);
   transition: all 0.5s ease-in;
 }
 .container .intros-container .intro-control .intro-control__inner {
@@ -106,15 +105,16 @@
 .container .intros-container .intro-control button {
   border: none;
   padding: 15px 30px;
-  background-color: #2563eb;
+  background-color: #170b59;
   border-radius: 50px;
   color: #fff;
   margin: 10px 0px;
   cursor: pointer;
 }
-.container .intros-container .intro-control button:focus, .container .intros-container .intro-control button:hover {
+.container .intros-container .intro-control button:focus,
+.container .intros-container .intro-control button:hover {
   outline: none;
-  background-color: #059669;
+  background-color: #07091e;
 }
 .container .intros-container .intro-control h3,
 .container .intros-container .intro-control p {
@@ -135,7 +135,7 @@
   transform: translateX(-100%);
 }
 .change .forms-container .form-control.signup-form button {
-  background-color: #2563eb !important;
+  background-color: #eb25e1 !important;
 }
 .change .forms-container .form-control.signin-form {
   opacity: 0;
@@ -144,10 +144,10 @@
 }
 .change .intros-container .intro-control {
   transform: translateX(-100%);
-  background: linear-gradient(170deg, #3b82f6, #2563eb);
+  background: linear-gradient(170deg, #960572, #3496d3);
 }
 .change .intros-container .intro-control #signin-btn {
-  background-color: #10b981;
+  background-color: #2110b9;
 }
 .change .intros-container .intro-control.signin-intro {
   opacity: 0;
@@ -163,7 +163,6 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    
   }
   .container .forms-container {
     order: 2;

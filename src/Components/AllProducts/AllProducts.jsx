@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
