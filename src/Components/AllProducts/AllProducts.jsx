@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
@@ -77,76 +77,69 @@ const AllProducts = () => {
 
   return (
     <div className="mt-6">
-
-        <div className="flex flex-col lg:flex-row justify-between mb-6">
-            {/* Sorting field */}
-            <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn m-1 btn-primary text-white"
-              >
-                Sort By
-              </div>
-              <ul
-                tabIndex={0}
-                className="text-black dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-              >
-                <li>
-                  <a onClick={() => handleSortChange("creationDate")}>
-                    Date Added
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => handleSortChange("price")}>Price</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Searching */}
-            <div>
-              <form className="flex flex-row gap-3 " onSubmit={searchHandler}>
-                <label className="text-base lg:text-lg font-medium">
-                  Search{" "}
-                </label>
-                <div className="flex flex-row gap-2">
-                  <input
-                    type="text"
-                    name="search"
-                    className="rounded-xl border-2 border-blue-800"
-                    placeholder="   Product name or brand"
-                  />
-                  <button type="submit">
-                    <FaMagnifyingGlass />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSearchData("");
-                      fetchProducts(currentPage, sortField, sortOrder, "");
-                    }}
-                  >
-                    <ImCross />
-                  </button>
-                </div>
-              </form>
-            </div>
+      <div className="flex flex-col lg:flex-row justify-between mb-6">
+        {/* Sorting field */}
+        <div className="dropdown">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn m-1 btn-primary text-white"
+          >
+            Sort By
           </div>
+          <ul
+            tabIndex={0}
+            className="text-black dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
+            <li>
+              <a onClick={() => handleSortChange("creationDate")}>Date Added</a>
+            </li>
+            <li>
+              <a onClick={() => handleSortChange("price")}>Price</a>
+            </li>
+          </ul>
+        </div>
 
-        {/* drawer  */}
+        {/* Searching */}
+        <div>
+          <form className="flex flex-row gap-3 " onSubmit={searchHandler}>
+            <label className="text-base lg:text-lg font-medium">Search </label>
+            <div className="flex flex-row gap-2">
+              <input
+                type="text"
+                name="search"
+                className="rounded-xl border-2 border-blue-800"
+                placeholder="   Product name or brand"
+              />
+              <button type="submit">
+                <FaMagnifyingGlass />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchData("");
+                  fetchProducts(currentPage, sortField, sortOrder, "");
+                }}
+              >
+                <ImCross />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {/* drawer  */}
       <div className="drawer  lg:drawer-open ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
           <label
-                htmlFor="my-drawer-2"
-                className="btn bg-black drawer-button lg:hidden rounded-r-lg 
+            htmlFor="my-drawer-2"
+            className="btn bg-black drawer-button lg:hidden rounded-r-lg 
                 text-blue-200 left-0 text-sm p-3 z-[2] fixed top-1/4"
-            >
+          >
             <TiThMenu />
           </label>
-
-      
 
           <div className="grid grid-cols-1 md:grid-cols-2  gap-6 max-w-full">
             {products.map((product) => (
@@ -193,7 +186,7 @@ const AllProducts = () => {
           </div>
 
           {/* pagination  */}
-          <div className="flex justify-center items-center mt-6">
+          <div className="flex flex-wrap justify-center items-center mt-6">
             <button
               onClick={handlePrevPage}
               disabled={currentPage === 1}
@@ -222,7 +215,6 @@ const AllProducts = () => {
           </div>
         </div>
 
-
         <div className="drawer-side z-[10]">
           <label
             htmlFor="my-drawer-2"
@@ -232,48 +224,58 @@ const AllProducts = () => {
           <ul className="menu bg-blue-300 lg:bg-transparent  text-base-content min-h-full w-80 p-4 text-left">
             {/* Sidebar content here */}
             <label
-            htmlFor="my-drawer-2"
-            aria-label="close sidebar"
-            className="drawer-overlay text-right btn 
+              htmlFor="my-drawer-2"
+              aria-label="close sidebar"
+              className="drawer-overlay text-right btn 
             btn-circle lg:hidden absolute z-[10] right-5 text-indigo-800"
-             > 
-                <ImCross/> 
-             </label>
+            >
+              <ImCross />
+            </label>
 
-           <p className="font-semibold text-2xl text-indigo-800 ">Filter By: </p>
+            <p className="font-semibold text-2xl text-indigo-800 ">
+              Filter By:{" "}
+            </p>
 
-           {/* category  */}
-           <div className="flex flex-col mt-2">
+            {/* category  */}
+            <div className="flex flex-col mt-2">
               <p className="font-semibold text-lg">Category </p>
               <select className="select select-primary w-full max-w-xs">
-                <option disabled selected>Any</option>
+                <option disabled selected>
+                  Any
+                </option>
                 <option>Shoes</option>
                 <option>Caps</option>
                 <option>Watches</option>
                 <option>Sunglasses</option>
                 <option>Bags</option>
-                </select>
-
-           </div>
-           {/* Brand  */}
-           <div className="flex flex-col mt-2">
+              </select>
+            </div>
+            {/* Brand  */}
+            <div className="flex flex-col mt-2">
               <p className="font-semibold text-lg">Brand </p>
               <select className="select select-primary w-full max-w-xs">
-                <option disabled selected>Any</option>
+                <option disabled selected>
+                  Any
+                </option>
                 <option>Gucci</option>
                 <option>Adidas</option>
                 <option>Nike</option>
                 <option>Ray-Ban</option>
                 <option>Oakley</option>
                 <option>Rolex</option>
-                </select>
+              </select>
+            </div>
 
-           </div>
-
-           {/* price range  */}
-           <div className="flex flex-col mt-2">
-                <p className="font-semibold text-lg">Price  </p>
-                <input type="range" min={0} max="100" value="40" className="range range-primary" /> 
+            {/* price range  */}
+            <div className="flex flex-col mt-2">
+              <p className="font-semibold text-lg">Price </p>
+              <input
+                type="range"
+                min={0}
+                max="100"
+                value="40"
+                className="range range-primary"
+              />
             </div>
           </ul>
         </div>
