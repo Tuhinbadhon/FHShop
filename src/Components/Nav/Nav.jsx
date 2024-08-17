@@ -131,7 +131,7 @@ const Nav = () => {
             <Link to="/">
               {" "}
               <img
-                className="lg:w-12 lg:h-12 w-10 h-10"
+                className="lg:w-12 lg:h-12 w-10 max-[450px]:hidden"
                 src="/srlogo.png"
                 alt=""
               />{" "}
