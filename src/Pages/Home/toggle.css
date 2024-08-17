@@ -179,9 +179,11 @@
   }
   .container .intros-container {
     order: 1;
-    width: 100%;
+    width: 90%;
     left: 0%;
     height: 40vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .container .intros-container .intro-control {
     position: absolute;

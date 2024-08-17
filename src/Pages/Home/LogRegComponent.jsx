@@ -18,11 +18,11 @@ const LogRegComponent = () => {
         <div className="form-control signup-form ">
           <Registration />
         </div>
-        <div className="form-control signin-form">
+        <div className="form-control max-[450px]:mt-10 signin-form">
           <Login />
         </div>
       </div>
-      <div className="intros-container">
+      <div className="intros-container ">
         <div className="intro-control signin-intro">
           <div className="intro-control__inner">
             <img
